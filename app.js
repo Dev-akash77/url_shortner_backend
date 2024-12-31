@@ -2,7 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 import crypto from "crypto";
 import { createServer } from "http";
 import path from "path";
-const PORT = 8000;
+const PORT = 3000;
 const FILE_PATH = path.join("data", "links.json");
 
 // !save file
