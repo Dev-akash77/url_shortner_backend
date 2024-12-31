@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>URL Shortner</title>
+  </head>
+  <body>
+    <div class="main_box">
+      <div class="main_cont_box">
+        <h1 class="heading cc">URL SHortner</h1>
+        <form id="from_data">
+          <div class="leble_main">
+            <label for="url">Enter Url:</label>
+            <input type="url" id="url" placeholder="url" name="url" required />
+          </div>
+          <div class="leble_main">
+            <label for="shortCode">Custom short url:</label>
+            <input
+              type="text"
+              id="shortCode"
+              placeholder="short url"
+              name="shortUrl"
+              required
+            />
+          </div>
+          <div class="cc"><button type="submit">Shorten</button></div>
+        </form>
+        <!-- ? shorten url code here -->
+        <div class="shorten_output">
+          <p class="cc">Shortened URL</p>
+          <div class="scode_url_main cc">
+            <!-- ? here add data dynamically -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const fromData = document.getElementById("from_data");
+      const urlInput = document.getElementById("url");
+      const shortCodeInput = document.getElementById("shortCode");
+      const scode_url_main = document.querySelector(".scode_url_main");
+      scode_url_main.innerHTML = ``; 
+      const fetchShortendata = async () => {
+        const res = await fetch("/links");
+        const data = await res.json();
+        for (const [shortUrl, url] of Object.entries(data)) {
+          scode_url_main.innerHTML = `
+        <a href=${shortUrl} class="short_code" target="_blank">${window.location.origin}/${shortUrl}</a>
+            <a href=${url} class="url" target="_blank">${url.length >= 40 ? url.slice(0, 40) + "...":url }</a>
+        `;
+        }
+      };
+
+      fromData.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const fromData = new FormData(e.target);
+        const url = fromData.get("url");
+        const shortUrl = fromData.get("shortUrl");
+        try {
+          const res = await fetch("/shorten", {
+            method: "POST",
+            headers: { "Content-Type": "aplication/json" },
+            body: JSON.stringify({ url, shortUrl }),
+          });
+          if (res.ok) {
+            fetchShortendata();
+          }
+          const data = await res.json();
+        } catch (error) {
+          console.log(error);
+        }
+        urlInput.value = "";
+        shortCodeInput.value = "";
+      });
+      fetchShortendata();
+    </script>
+  </body>
+</html>

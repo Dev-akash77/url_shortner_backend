@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+* {
+  font-family: Ubuntu;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 63.5%;
+}
+.cc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main_box {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+}
+.main_cont_box {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* height: 75%; */
+  width: 43rem;
+  border: 0.2rem solid black;
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+}
+.heading {
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 400;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+.leble_main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.leble_main label {
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.leble_main input {
+  outline: none;
+  padding: 1rem 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+button {
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  background-color: #6a8be1;
+  color: white;
+  cursor: pointer;
+}
+.shorten_output {
+  margin-top: 3rem;
+}
+.shorten_output p {
+  font-size: 2rem;
+}
+.scode_url_main{
+  margin-top: 1.4rem;
+  gap: .5rem;
+}
+.short_code,.url{
+  font-size: 1.5rem;
+  color: blue;
+  text-decoration: none;
+}
+.url{
+  color: black;
+}
