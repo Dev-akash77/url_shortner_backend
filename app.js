@@ -92,6 +92,6 @@ const server = createServer(async (req, res) => {
 });
 
 // ! here is the PORT of our server
-server.listen(PORT,0.0.0.0,() => {
+server.listen(PORT,"0.0.0.0",() => {
   console.log(`server running at the port ${PORT}`);
 });
