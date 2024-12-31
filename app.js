@@ -2,7 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 import crypto from "crypto";
 import { createServer } from "http";
 import path from "path";
-const PORT = 3000;
+// const PORT = 3000;
 const FILE_PATH = path.join("data", "links.json");
 
 // !save file
@@ -92,6 +92,6 @@ const server = createServer(async (req, res) => {
 });
 
 // ! here is the PORT of our server
-server.listen(PORT, () => {
-  console.log(`server running at the port ${PORT}`);
+server.listen(8001, () => {
+  console.log(`server running at the port ${8001}`);
 });
