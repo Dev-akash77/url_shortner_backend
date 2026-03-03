@@ -82,7 +82,7 @@ const server = createServer(async (req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(
         JSON.stringify({
-          message: "Short URL created successfully",
+          message: "Short URL Created Successfully",
           shortUrl: finalCode,
           url: url,
         })
